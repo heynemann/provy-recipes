@@ -19,6 +19,7 @@ class DjangoWebSite(Role):
                                    owner='djangotutorial')
 
         self.ensure_dir('/home/djangotutorial/logs', sudo=True, owner='djangotutorial')
+        self.ensure_dir('/home/djangotutorial/site-media/static', sudo=True, owner='djangotutorial')
 
         with self.using(MySQLRole) as role:
             role.ensure_user(username=self.context['mysql_user'],
@@ -48,7 +49,8 @@ class DjangoWebSite(Role):
                         'DATABASES["default"]["USER"]':
                             self.context['mysql_user'],
                         'DATABASES["default"]["PASSWORD"]': 
-                            self.context['mysql_password']
+                            self.context['mysql_password'],
+                        'STATIC_ROOT': '/home/djangotutorial/site-media/static'
                     }
 
         with self.using(NginxRole) as role:

@@ -11,6 +11,11 @@ server {
 
     access_log  /tmp/localhost.access.log;
 
+    location ~ ^/static/ {
+        root /home/djangotutorial/site-media;
+        expires 30d;
+    }
+
     location / {
         proxy_pass_header Server;
         proxy_set_header Host $http_host;
