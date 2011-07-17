@@ -13,11 +13,8 @@ Requirements
 You are required to have provy (and all its dependencies) and vagrant both
 installed.
 
-You'll also need vagrant's base box. You can add it with this command:
-
-    vagrant box add base http://files.vagrantup.com/lucid32.box
-
-(it might take some time. be patient!)
+The first time around it might take some time, as vagrant might have to
+download the VM image. Be patient!
 
 Running the Recipe
 ==================
