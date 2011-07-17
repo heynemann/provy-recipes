@@ -1,0 +1,32 @@
+Introduction
+============
+
+This recipe will get a django website up and running in a single server
+deployment with 4 processes with 2 threads each.
+
+More information on this recipe can be found at provy's docs website
+(http://provy.me).
+
+Requirements
+============
+
+You are required to have provy (and all its dependencies) and vagrant both
+installed.
+
+You'll also need vagrant's base box. You can add it with this command:
+
+    vagrant box add base http://files.vagrantup.com/lucid32.box
+
+(it might take some time. be patient!)
+
+Running the Recipe
+==================
+
+You can create the VM with:
+
+    make vm
+
+For provisioning the server:
+
+    make provision
+
