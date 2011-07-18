@@ -61,15 +61,30 @@ class DjangoWebSite(Role):
 
 
 servers = {
-    'web': {
-        'address': '33.33.33.33',
-        'user': 'vagrant',
-        'roles': [DjangoWebSite],
-        'options': {
-            'mysql_root_pass': 'pass',
-            'mysql_user': 'djangotutorial',
-            'mysql_password': AskFor('mysql_password', 'Please enter the password for the mysql djangotutorial user'),
-            'mysql_database': 'django_tutorial'
+    'local': {
+        'web': {
+            'address': '33.33.33.33',
+            'user': 'vagrant',
+            'roles': [DjangoWebSite],
+            'options': {
+                'mysql_root_pass': 'pass',
+                'mysql_user': 'djangotutorial',
+                'mysql_password': AskFor('mysql_password', 'Please enter the password for the mysql djangotutorial user'),
+                'mysql_database': 'django_tutorial'
+            }
+        }
+    },
+    'prod': {
+        'web': {
+            'address': 'ec2-50-18-84-237.us-west-1.compute.amazonaws.com',
+            'user': 'ubuntu',
+            'roles': [DjangoWebSite],
+            'options': {
+                'mysql_root_pass': 'pass',
+                'mysql_user': 'djangotutorial',
+                'mysql_password': AskFor('mysql_password', 'Please enter the password for the mysql djangotutorial user'),
+                'mysql_database': 'django_tutorial'
+            }
         }
     }
 }
